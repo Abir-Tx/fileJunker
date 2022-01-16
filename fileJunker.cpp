@@ -12,7 +12,8 @@ Build System: CMake
 #include <cstring>
 
 // Personal includes
-
+#include "fjutils.hpp"
+#include "help.hpp"
 // Personal Defines
 
 // Error Codes
@@ -20,14 +21,23 @@ Build System: CMake
 // Driver Function
 int main(int argc, char const *argv[])
 {
+	fj::utils::title();
 	if (argc <= 1) /* If no args passed */
+	{
 		std::cout << "No args passed. Specify the numbers of files you want to create & try again";
+		std::cout << std::endl;
+		std::cout << std::endl;
+		fj::helpmenu();
+	}
 	else /* If args are passed */
 	{
-		if (!std::strcmp(argv[1], "-c"))
+		if (!std::strcmp(argv[1], "-h") || !std::strcmp(argv[1], "--help"))
 		{
-			system("fsutil file createnew filename 1000000");
-			std::cout << "Done";
+			fj::helpmenu();
+		}
+		else
+		{
+			std::cerr << "Invalid argument passed. Use --help switch to see available commands" << std::endl;
 		}
 	}
 }
