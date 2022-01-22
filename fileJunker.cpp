@@ -39,6 +39,20 @@ int main(int argc, char const *argv[])
 		{
 			std::cout << "Current version of File Junker : v1.0.0" << std::endl;
 		}
+		else if (!std::strcmp(argv[1], "-s") || !std::strcmp(argv[1], "--size"))
+		{
+			std::cout << "Provided size is: " << argv[2] << " Bytes" << std::endl;
+
+			std::cout << "Creating a dummy file......" << std::endl;
+#ifdef linux
+			std::string givenSize = argv[2];
+			std::string createCmd = "dd if=/dev/zero of=dummyfile.bin bs=" + givenSize + " count=1";
+			system(createCmd.c_str());
+#endif
+#ifdef OS_Windows
+			std::cout << "Working on it";
+#endif
+		}
 		else
 		{
 			std::cerr << "Invalid argument passed. Use --help switch to see available commands" << std::endl;
