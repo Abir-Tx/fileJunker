@@ -35,6 +35,10 @@ int main(int argc, char const *argv[])
 		{
 			fj::helpmenu();
 		}
+		else if (!std::strcmp(argv[1], "-v") || !std::strcmp(argv[1], "--version"))
+		{
+			std::cout << "Current version of File Junker : v1.0.0" << std::endl;
+		}
 		else
 		{
 			std::cerr << "Invalid argument passed. Use --help switch to see available commands" << std::endl;
