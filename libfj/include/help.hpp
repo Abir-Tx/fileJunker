@@ -6,5 +6,6 @@
 namespace fj
 {
 	void helpmenu();
+	void programIntro();
 }
 #endif // HELP_HPP

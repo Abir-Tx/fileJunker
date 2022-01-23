@@ -33,6 +33,8 @@ int main(int argc, char const *argv[])
 	{
 		if (!std::strcmp(argv[1], "-h") || !std::strcmp(argv[1], "--help"))
 		{
+			fj::programIntro();
+			std::cout << std::endl;
 			fj::helpmenu();
 		}
 		else if (!std::strcmp(argv[1], "-v") || !std::strcmp(argv[1], "--version"))

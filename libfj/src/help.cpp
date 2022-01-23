@@ -14,3 +14,8 @@ void fj::helpmenu()
 		std::cout << availableCmd[i] << " ";
 	}
 }
+
+void fj::programIntro()
+{
+	std::cout << "An CLI tool to create dummy files of any size" << std::endl;
+}
