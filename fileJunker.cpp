@@ -44,13 +44,14 @@ int main(int argc, char const *argv[])
 			std::cout << "Provided size is: " << argv[2] << " Bytes" << std::endl;
 
 			std::cout << "Creating a dummy file......" << std::endl;
-#ifdef linux
 			std::string givenSize = argv[2];
+#ifdef linux
 			std::string createCmd = "dd if=/dev/zero of=dummyfile.bin bs=" + givenSize + " count=1";
 			system(createCmd.c_str());
 #endif
-#ifdef OS_Windows
-			std::cout << "Working on it";
+#ifdef _WIN32
+			std::string createCmd = "fsutil file createnew dummyfile.bin " + givenSize;
+			system(createCmd.c_str());
 #endif
 		}
 		else
